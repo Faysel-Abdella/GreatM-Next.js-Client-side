@@ -10,9 +10,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        noto: ["Noto Sans KR", "sans-serif"],
+      },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        mainBlack: "#363941",
+        mainWhite: "#ffffff",
+        mainPurple: "#9388FE",
+        mainGray: "#A1A9A3",
+        bgPurple: "#F6F5FF",
       },
     },
   },
