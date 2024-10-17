@@ -1,26 +1,19 @@
 import React from "react";
 import { Select, SelectItem } from "@nextui-org/react";
 
-const DropDownWithLabel = ({
-  title,
+const DropDown = ({
   options,
   defaultSelectedKeys,
-  titleStyles,
   selectStyles,
   insideStyles,
 }: {
-  title: string;
   options: { key: string; label: string }[];
   defaultSelectedKeys: string;
-  titleStyles?: string;
   selectStyles?: string;
   insideStyles?: string;
 }) => {
   return (
     <div className="flex items-center">
-      <h4 className={`${titleStyles}  text-mainBlack text-base text-nowrap`}>
-        {title}
-      </h4>
       <div>
         <Select
           classNames={{
@@ -43,4 +36,4 @@ const DropDownWithLabel = ({
   );
 };
 
-export default DropDownWithLabel;
+export default DropDown;
