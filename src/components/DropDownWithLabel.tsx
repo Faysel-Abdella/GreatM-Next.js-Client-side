@@ -17,7 +17,7 @@ const DropDownWithLabel = ({
   insideStyles?: string;
 }) => {
   return (
-    <div className="flex items-center gap-7">
+    <div className="flex items-center">
       <h4 className={`${titleStyles}  text-mainBlack text-base text-nowrap`}>
         {title}
       </h4>

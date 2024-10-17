@@ -17,11 +17,11 @@ import DropDownWithLabel from "@/components/DropDownWithLabel";
 import InputNoLabel from "@/components/InputNoLable";
 import HeaderDropDown from "@/components/HeaderDropDown";
 
-import row2Column1 from "@/data/tables/row2Column1";
-import row2Column1Columns from "@/data/columns/row2Column1Columns";
+import row3Column1 from "@/data/tables/row3Column1";
+import row3Column1Columns from "@/data/columns/row3Column1Columns";
 import Link from "next/link";
 
-const PaymentManagement = () => {
+const CategoryManagementPage = () => {
   const options = [
     { key: "1", label: "전체" },
     { key: "2", label: "일반회원" },
@@ -57,7 +57,7 @@ const PaymentManagement = () => {
 
   const rowsPerPage = parseInt(viewValue);
 
-  const pages = Math.ceil(row2Column1.length / rowsPerPage);
+  const pages = Math.ceil(row3Column1.length / rowsPerPage);
 
   const [currentData, setCurrentData] = useState<any>();
 
@@ -65,9 +65,9 @@ const PaymentManagement = () => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    setCurrentData(row2Column1.slice(start, end));
-    return row2Column1.slice(start, end);
-  }, [page, row2Column1, viewValue, rowsPerPage]);
+    setCurrentData(row3Column1.slice(start, end));
+    return row3Column1.slice(start, end);
+  }, [page, row3Column1, viewValue, rowsPerPage]);
 
   // Selection Logic
   const [clickedRowIds, setClickedRowIds] = useState<number[]>([]);
@@ -84,38 +84,47 @@ const PaymentManagement = () => {
           </button>
         </div>
         <h2 className="mt-4 font-bold text-[30px] leading-[42px] text-mainBlack">
-          결제 관리
+          콘텐츠 관리
         </h2>
 
         <div className="mt-4 bg-mainWhite py-7 px-9 rounded-[20px]">
           <div className="flex items-center justify-between ">
-            <InputWithLabel
-              label="결제자"
-              placeholder="닉네임"
-              labelStyles=" text-mainBlack text-base w-[70px]"
-              inputStyles="w-[310px] h-[44px]"
+            <DropDownWithLabel
+              title="카테고리"
+              options={options}
+              defaultSelectedKeys="1"
+              titleStyles=" text-mainBlack text-base w-[90px]"
+              insideStyles=" w-[310px] h-[44px]"
             />
-            <div className="flex items-center gap-[20px]">
-              <InputWithLabel
-                label="결제기간"
-                labelStyles="text-mainBlack text-base w-[70px]"
-                inputStyles="w-[145px] h-[44px]"
-                type="date"
-              />
-              <InputNoLabel
-                type="date"
-                inputStyles="w-[145px] h-[44px] text-mainGray"
-                inputParentStyles="text-mainGray"
-                mainStyles="text-mainGray"
-              />
-            </div>
-            <Button className="h-[46px] w-[170px] rounded-[5px] bg-mainPurple text-mainWhite text-base">
+
+            <DropDownWithLabel
+              title="연령"
+              options={options}
+              defaultSelectedKeys="1"
+              titleStyles=" text-mainBlack text-base w-[70px]"
+              insideStyles="w-[310px] h-[44px]"
+            />
+
+            <Button className="h-[46px] w-[190px] rounded-[5px] bg-mainPurple text-mainWhite text-base">
               검색
             </Button>
           </div>
 
-          <div className="mt-[20px] flex items-center justify-end ">
-            <Button className="h-[46px] w-[170px] rounded-[5px] bg-bgPurple text-mainPurple text-base">
+          <div className="mt-[20px] flex items-center justify-between ">
+            <InputWithLabel
+              label="제목"
+              placeholder="닉네임"
+              labelStyles=" text-mainBlack text-base w-[90px]"
+              inputStyles="w-[310px] h-[44px]"
+            />
+            <DropDownWithLabel
+              title="유형"
+              options={options}
+              defaultSelectedKeys="1"
+              titleStyles=" text-mainBlack text-base w-[70px]"
+              insideStyles=" w-[310px] h-[44px]"
+            />
+            <Button className="h-[46px] w-[190px] rounded-[5px] bg-bgPurple text-mainPurple text-base">
               초기화
             </Button>
           </div>
@@ -135,12 +144,20 @@ const PaymentManagement = () => {
               styles="w-[139px] "
               mainStyles="bg-transparent border border-grayBorder rounded-[5px]"
             />
-            <Button
-              aria-label="Header"
-              className="bg-mainGray text-mainWhite font-normal text-base w-[28px] rounded-[5px]"
-            >
-              삭제
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button
+                aria-label="Header"
+                className="bg-mainGray text-mainWhite font-normal text-base w-[28px] rounded-[5px]"
+              >
+                삭제
+              </Button>
+              <Button
+                aria-label="Header"
+                className="bg-mainBlack text-mainWhite font-normal text-base w-[28px] rounded-[5px]"
+              >
+                추가
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -203,7 +220,7 @@ const PaymentManagement = () => {
               </TableColumn>
 
               <React.Fragment>
-                {row2Column1Columns.map((column) => (
+                {row3Column1Columns.map((column) => (
                   <TableColumn key={column.key}>{column.name}</TableColumn>
                 ))}
               </React.Fragment>
@@ -227,16 +244,16 @@ const PaymentManagement = () => {
                     ></Checkbox>
                   </TableCell>
                   <TableCell>{row.number}</TableCell>
-                  <TableCell>{row.paymentDate}</TableCell>
-                  <TableCell>{row.expirationDate}</TableCell>
-                  <TableCell>{row.paymentMethod}</TableCell>
-                  <TableCell>{row.payer}</TableCell>
+                  <TableCell>{row.category}</TableCell>
+                  <TableCell>{row.years}</TableCell>
+                  <TableCell>{row.category2}</TableCell>
+                  <TableCell>{row.contentTitle}</TableCell>
                   <TableCell>
                     <Link
-                      href="/admin/payment/payment-management/1"
+                      href="/admin/content/content-management/1"
                       className="text-mainPurple underline underline-offset-2"
                     >
-                      {row.amount}
+                      {row.viewDetails}
                     </Link>
                   </TableCell>
                 </TableRow>
@@ -249,4 +266,4 @@ const PaymentManagement = () => {
   );
 };
 
-export default PaymentManagement;
+export default CategoryManagementPage;

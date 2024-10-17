@@ -21,7 +21,7 @@ import row1Column1 from "@/data/tables/row1Column1";
 import row1Column1Columns from "@/data/columns/row1Column1Columns";
 import Link from "next/link";
 
-const MemberManagement = () => {
+const MemberManagementPage = () => {
   const options = [
     { key: "1", label: "전체" },
     { key: "2", label: "일반회원" },
@@ -99,7 +99,7 @@ const MemberManagement = () => {
               title="로그인 유형"
               options={options}
               defaultSelectedKeys="1"
-              titleStyles=" text-mainBlack text-base w-[70px]"
+              titleStyles=" text-mainBlack text-base w-[90px]"
               insideStyles=" w-[310px] h-[44px]"
             />
 
@@ -127,7 +127,7 @@ const MemberManagement = () => {
               title="등급"
               options={options}
               defaultSelectedKeys="1"
-              titleStyles=" text-mainBlack text-base w-[70px]"
+              titleStyles=" text-mainBlack text-base w-[90px]"
               insideStyles=" w-[310px] h-[44px]"
             />
 
@@ -249,7 +249,7 @@ const MemberManagement = () => {
                   <TableCell>{row.rating}</TableCell>
                   <TableCell>
                     <Link
-                      href="/admin/membership/1"
+                      href="/admin/membership/membership-management/1"
                       className="text-mainPurple underline underline-offset-2"
                     >
                       {row.viewDetails}
@@ -265,4 +265,4 @@ const MemberManagement = () => {
   );
 };
 
-export default MemberManagement;
+export default MemberManagementPage;
