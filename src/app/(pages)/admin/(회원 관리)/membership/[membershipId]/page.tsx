@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import BasicInformation from "@/components/BasicInformation";
+import PaymentHistory from "@/components/PaymentHistory";
 
 const page = () => {
   const [selectedOption, setSelectedOption] = useState<
@@ -48,7 +49,7 @@ const page = () => {
         {selectedOption === "basicInformation" ? (
           <BasicInformation />
         ) : (
-          <h2>Test Payment</h2>
+          <PaymentHistory />
         )}
       </main>
     </section>

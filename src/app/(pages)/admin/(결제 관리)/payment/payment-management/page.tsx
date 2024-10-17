@@ -17,11 +17,11 @@ import DropDownWithLabel from "@/components/DropDownWithLabel";
 import InputNoLabel from "@/components/InputNoLable";
 import HeaderDropDown from "@/components/HeaderDropDown";
 
-import row1Column1 from "@/data/tables/row1Column1";
-import row1Column1Columns from "@/data/columns/row1Column1Columns";
+import row2Column1 from "@/data/tables/row2Column1";
+import row2Column1Columns from "@/data/columns/row2Column1Columns";
 import Link from "next/link";
 
-const MemberManagement = () => {
+const PaymentManagement = () => {
   const options = [
     { key: "1", label: "전체" },
     { key: "2", label: "일반회원" },
@@ -57,7 +57,7 @@ const MemberManagement = () => {
 
   const rowsPerPage = parseInt(viewValue);
 
-  const pages = Math.ceil(row1Column1.length / rowsPerPage);
+  const pages = Math.ceil(row2Column1.length / rowsPerPage);
 
   const [currentData, setCurrentData] = useState<any>();
 
@@ -65,9 +65,9 @@ const MemberManagement = () => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    setCurrentData(row1Column1.slice(start, end));
-    return row1Column1.slice(start, end);
-  }, [page, row1Column1, viewValue, rowsPerPage]);
+    setCurrentData(row2Column1.slice(start, end));
+    return row2Column1.slice(start, end);
+  }, [page, row2Column1, viewValue, rowsPerPage]);
 
   // Selection Logic
   const [clickedRowIds, setClickedRowIds] = useState<number[]>([]);
@@ -84,34 +84,20 @@ const MemberManagement = () => {
           </button>
         </div>
         <h2 className="mt-4 font-bold text-[30px] leading-[42px] text-mainBlack">
-          회원 관리
+          결제 관리
         </h2>
 
         <div className="mt-4 bg-mainWhite py-7 px-9 rounded-[20px]">
           <div className="flex items-center justify-between ">
             <InputWithLabel
-              label="닉네임"
+              label="결제자"
               placeholder="닉네임"
               labelStyles=" text-mainBlack text-base w-[70px]"
               inputStyles="w-[310px] h-[44px]"
             />
-            <DropDownWithLabel
-              title="로그인 유형"
-              options={options}
-              defaultSelectedKeys="1"
-              titleStyles=" text-mainBlack text-base w-[70px]"
-              insideStyles=" w-[310px] h-[44px]"
-            />
-
-            <Button className="h-[46px] w-[170px] rounded-[5px] bg-mainPurple text-mainWhite text-base">
-              검색
-            </Button>
-          </div>
-
-          <div className="mt-[20px] flex items-center justify-between ">
             <div className="flex items-center gap-[20px]">
               <InputWithLabel
-                label="가입일"
+                label="결제기간"
                 labelStyles="text-mainBlack text-base w-[70px]"
                 inputStyles="w-[145px] h-[44px]"
                 type="date"
@@ -123,14 +109,12 @@ const MemberManagement = () => {
                 mainStyles="text-mainGray"
               />
             </div>
-            <DropDownWithLabel
-              title="등급"
-              options={options}
-              defaultSelectedKeys="1"
-              titleStyles=" text-mainBlack text-base w-[70px]"
-              insideStyles=" w-[310px] h-[44px]"
-            />
+            <Button className="h-[46px] w-[170px] rounded-[5px] bg-mainPurple text-mainWhite text-base">
+              검색
+            </Button>
+          </div>
 
+          <div className="mt-[20px] flex items-center justify-end ">
             <Button className="h-[46px] w-[170px] rounded-[5px] bg-bgPurple text-mainPurple text-base">
               초기화
             </Button>
@@ -219,7 +203,7 @@ const MemberManagement = () => {
               </TableColumn>
 
               <React.Fragment>
-                {row1Column1Columns.map((column) => (
+                {row2Column1Columns.map((column) => (
                   <TableColumn key={column.key}>{column.name}</TableColumn>
                 ))}
               </React.Fragment>
@@ -243,16 +227,16 @@ const MemberManagement = () => {
                     ></Checkbox>
                   </TableCell>
                   <TableCell>{row.number}</TableCell>
-                  <TableCell>{row.nickname}</TableCell>
-                  <TableCell>{row.loginType}</TableCell>
-                  <TableCell>{row.joinDate}</TableCell>
-                  <TableCell>{row.rating}</TableCell>
+                  <TableCell>{row.paymentDate}</TableCell>
+                  <TableCell>{row.expirationDate}</TableCell>
+                  <TableCell>{row.paymentMethod}</TableCell>
+                  <TableCell>{row.payer}</TableCell>
                   <TableCell>
                     <Link
-                      href="/admin/membership-management/1"
+                      href="/admin/payment/1"
                       className="text-mainPurple underline underline-offset-2"
                     >
-                      {row.viewDetails}
+                      {row.amount}
                     </Link>
                   </TableCell>
                 </TableRow>
@@ -265,4 +249,4 @@ const MemberManagement = () => {
   );
 };
 
-export default MemberManagement;
+export default PaymentManagement;

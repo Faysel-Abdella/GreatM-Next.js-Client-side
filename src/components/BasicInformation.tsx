@@ -142,7 +142,7 @@ const BasicInformation = () => {
                   <Button
                     className="py-[12px] px-[50px] rounded-[10px] bg-[#F5F6F8] font-bold text-base"
                     onClick={() => {
-                      onDeleteBtn();
+                      onDeleteBtnChange();
                     }}
                   >
                     취소
@@ -150,7 +150,7 @@ const BasicInformation = () => {
                   <Button
                     className="py-[12px] px-[50px] rounded-[10px] bg-[#F5F6F8] font-bold text-base"
                     onClick={() => {
-                      onDeleteBtn();
+                      onDeleteBtnChange();
                     }}
                   >
                     삭제
