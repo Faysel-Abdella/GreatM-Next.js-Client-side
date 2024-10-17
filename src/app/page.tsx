@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/assets/logo.svg";
 import { Button, Input } from "@nextui-org/react";
 import { Checkbox } from "@nextui-org/react";
+import Link from "next/link";
 const page = () => {
   return (
     <section className="min-h-lvh flex justify-center items-center font-noto">
@@ -57,11 +58,11 @@ const page = () => {
             <Checkbox defaultSelected>아이디 저장</Checkbox>
           </div>
 
-          <div>
+          <Link href="/admin/membership/membership-management">
             <Button className="mt-7 w-full rounded-[10px]  bg-mainPurple font-normal text-[16px] leading-[22px] text-mainWhite">
               로그인
             </Button>
-          </div>
+          </Link>
         </div>
       </main>
     </section>

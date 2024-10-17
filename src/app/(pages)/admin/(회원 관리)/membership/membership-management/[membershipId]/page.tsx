@@ -5,7 +5,7 @@ import { useState } from "react";
 import BasicInformation from "@/components/BasicInformation";
 import PaymentHistory from "@/components/PaymentHistory";
 
-const page = () => {
+const MembershipDetail = () => {
   const [selectedOption, setSelectedOption] = useState<
     "basicInformation" | "paymentHistory"
   >("basicInformation");
@@ -56,4 +56,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default MembershipDetail;
