@@ -15,7 +15,7 @@ import faqActive from "@/assets/icons/sidebar/faq-active.svg";
 import oneToOne from "@/assets/icons/sidebar/one-to-one.svg";
 import oneToOneActive from "@/assets/icons/sidebar/one-to-one-active.svg";
 
-export default {
+const assets = {
   member,
   memberActive,
   payment,
@@ -33,3 +33,5 @@ export default {
   oneToOne,
   oneToOneActive,
 };
+
+export default assets;

@@ -21,7 +21,7 @@ import row1Column1 from "@/data/tables/row1Column1";
 import row1Column1Columns from "@/data/columns/row1Column1Columns";
 import Link from "next/link";
 
-const page = () => {
+const MemberManagement = () => {
   const options = [
     { key: "1", label: "전체" },
     { key: "2", label: "일반회원" },
@@ -67,7 +67,7 @@ const page = () => {
 
     setCurrentData(row1Column1.slice(start, end));
     return row1Column1.slice(start, end);
-  }, [page, row1Column1, viewValue]);
+  }, [page, row1Column1, viewValue, rowsPerPage]);
 
   // Selection Logic
   const [clickedRowIds, setClickedRowIds] = useState<number[]>([]);
@@ -265,4 +265,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default MemberManagement;
