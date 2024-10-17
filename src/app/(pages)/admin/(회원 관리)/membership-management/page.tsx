@@ -92,7 +92,7 @@ const MemberManagement = () => {
             <InputWithLabel
               label="닉네임"
               placeholder="닉네임"
-              labelStyles=" text-mainBlack text-base"
+              labelStyles=" text-mainBlack text-base w-[70px]"
               inputStyles="w-[310px] h-[44px]"
             />
             <DropDownWithLabel
@@ -112,7 +112,7 @@ const MemberManagement = () => {
             <div className="flex items-center gap-[20px]">
               <InputWithLabel
                 label="가입일"
-                labelStyles="text-mainBlack text-base "
+                labelStyles="text-mainBlack text-base w-[70px]"
                 inputStyles="w-[145px] h-[44px]"
                 type="date"
               />

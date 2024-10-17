@@ -22,11 +22,9 @@ const InputWithLabel = ({
   type?: "text" | "number" | "date";
 }) => {
   return (
-    <section className={`flex items-center gap-7 ${mainStyles}`}>
+    <section className={`flex items-center ${mainStyles}`}>
       <div>
-        <h3
-          className={`${labelStyles} text-mainBlack  font-medium text-base text-nowrap`}
-        >
+        <h3 className={`${labelStyles} text-mainBlack  text-base text-nowrap`}>
           {label}
         </h3>
       </div>
