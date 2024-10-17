@@ -22,6 +22,7 @@ const config: Config = {
         mainPurple: "#9388FE",
         mainGray: "#A1A9A3",
         bgPurple: "#F6F5FF",
+        grayBorder: "#D2D5D6",
       },
     },
   },

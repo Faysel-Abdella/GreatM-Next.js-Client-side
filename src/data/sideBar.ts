@@ -2,7 +2,7 @@ import assets from "@/assets";
 
 const sideBarContent = [
   {
-    order: 1,
+    order: "1",
     mainTitle: "회원 관리",
     icon: assets.member,
     activeIcon: assets.memberActive,
@@ -11,7 +11,7 @@ const sideBarContent = [
     subTitles: [],
   },
   {
-    order: 2,
+    order: "2",
     mainTitle: "결제 관리",
     icon: assets.payment,
     activeIcon: assets.paymentActive,
@@ -20,7 +20,7 @@ const sideBarContent = [
     subTitles: [],
   },
   {
-    order: 3,
+    order: "3",
     mainTitle: "콘텐츠 관리",
     icon: assets.content,
     activeIcon: assets.contentActive,
@@ -39,7 +39,7 @@ const sideBarContent = [
   },
 
   {
-    order: 4,
+    order: "4",
     mainTitle: "커뮤니티 관리",
     icon: assets.community,
     activeIcon: assets.communityActive,
@@ -65,7 +65,7 @@ const sideBarContent = [
     ],
   },
   {
-    order: 5,
+    order: "5",
     mainTitle: "검사결과 관리",
     icon: assets.message,
     activeIcon: assets.messageActive,
@@ -74,7 +74,7 @@ const sideBarContent = [
     subTitles: [],
   },
   {
-    order: 6,
+    order: "6",
     mainTitle: "공지사항 관리",
     icon: assets.notice,
     activeIcon: assets.noticeActive,
@@ -83,7 +83,7 @@ const sideBarContent = [
     subTitles: [],
   },
   {
-    order: 7,
+    order: "7",
     mainTitle: "FAQ 관리",
     icon: assets.faq,
     activeIcon: assets.faqActive,
@@ -93,7 +93,7 @@ const sideBarContent = [
     subTitles: [],
   },
   {
-    order: 8,
+    order: "8",
     mainTitle: "1:1문의 관리",
     icon: assets.oneToOne,
     activeIcon: assets.oneToOneActive,
