@@ -17,6 +17,10 @@ import oneToOneActive from "@/assets/icons/sidebar/one-to-one-active.svg";
 
 import demoImage from "@/assets/images/demo-image.png";
 
+import tableBodyImage1 from "@/assets/images/table-body-image-1.png";
+import tableBodyImage2 from "@/assets/images/table-body-image-2.png";
+import tableBodyImage3 from "@/assets/images/table-body-image-3.png";
+
 const assets = {
   member,
   memberActive,
@@ -36,6 +40,10 @@ const assets = {
   oneToOneActive,
 
   demoImage,
+
+  tableBodyImage1,
+  tableBodyImage2,
+  tableBodyImage3,
 };
 
 export default assets;
