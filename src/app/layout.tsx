@@ -4,7 +4,7 @@ import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 
 export const metadata: Metadata = {
-  title: "Great Meat",
+  title: "NexaCode - Great Meat",
   description: "Created by Nexacode - Great Meat",
 };
 

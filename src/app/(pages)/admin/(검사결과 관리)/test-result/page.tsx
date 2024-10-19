@@ -16,12 +16,11 @@ import InputWithLabel from "@/components/InputWithLabel";
 import DropDownWithLabel from "@/components/DropDownWithLabel";
 import HeaderDropDown from "@/components/HeaderDropDown";
 
-import row7Column1 from "@/data/tables/row7Column1";
-import row7Column1Columns from "@/data/columns/row7Column1Columns";
+import row8Column1 from "@/data/tables/row8Column1";
+import row8Column1Columns from "@/data/columns/row8Column1Columns";
 import Link from "next/link";
-import Image from "next/image";
 
-const ParentingToonManagementPage = () => {
+const TestResultManagementPage = () => {
   const options = [
     { key: "1", label: "전체" },
     { key: "2", label: "일반회원" },
@@ -57,7 +56,7 @@ const ParentingToonManagementPage = () => {
 
   const rowsPerPage = parseInt(viewValue);
 
-  const pages = Math.ceil(row7Column1.length / rowsPerPage);
+  const pages = Math.ceil(row8Column1.length / rowsPerPage);
 
   const [currentData, setCurrentData] = useState<any>();
 
@@ -65,9 +64,9 @@ const ParentingToonManagementPage = () => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    setCurrentData(row7Column1.slice(start, end));
-    return row7Column1.slice(start, end);
-  }, [page, row7Column1, viewValue, rowsPerPage]);
+    setCurrentData(row8Column1.slice(start, end));
+    return row8Column1.slice(start, end);
+  }, [page, row8Column1, viewValue, rowsPerPage]);
 
   // Selection Logic
   const [clickedRowIds, setClickedRowIds] = useState<number[]>([]);
@@ -84,39 +83,48 @@ const ParentingToonManagementPage = () => {
           </button>
         </div>
         <h2 className="mt-4 font-bold text-[30px] leading-[42px] text-mainBlack">
-          육아툰 상세보기
+          검사 결과 관리
         </h2>
 
         <div className="mt-4 bg-mainWhite py-7 px-9 rounded-[20px]">
           <div className="flex items-center justify-between ">
+            <InputWithLabel
+              label="질문"
+              placeholder="닉네임"
+              labelStyles=" text-mainBlack text-base w-[90px]"
+              inputStyles="w-[310px] h-[44px]"
+            />
             <DropDownWithLabel
-              title="카테고리"
+              title="발달영역"
               options={options}
               defaultSelectedKeys="1"
               titleStyles=" text-mainBlack text-base w-[90px]"
               insideStyles=" w-[310px] h-[44px]"
             />
 
-            <InputWithLabel
-              label="작성자"
-              placeholder="닉네임"
-              labelStyles=" text-mainBlack text-base w-[90px]"
-              inputStyles="w-[310px] h-[44px]"
-            />
-
-            <Button className="h-[46px] w-[190px] rounded-[5px] bg-mainPurple text-mainWhite text-base">
+            <Button className="h-[46px] w-[170px] rounded-[5px] bg-mainPurple text-mainWhite text-base">
               검색
             </Button>
           </div>
 
           <div className="mt-[20px] flex items-center justify-between ">
-            <InputWithLabel
-              label="제목"
-              placeholder="닉네임"
-              labelStyles=" text-mainBlack text-base w-[90px]"
-              inputStyles="w-[770px] h-[44px]"
+            <DropDownWithLabel
+              title="연령"
+              options={options}
+              defaultSelectedKeys="1"
+              titleStyles=" text-mainBlack text-base w-[90px]"
+              insideStyles=" w-[310px] h-[44px]"
             />
-            <Button className="h-[46px] w-[190px] rounded-[5px] bg-bgPurple text-mainPurple text-base">
+
+            <DropDownWithLabel
+              title="등급"
+              options={options}
+              defaultSelectedKeys="1"
+              titleStyles=" text-mainBlack text-base w-[90px]"
+              insideStyles=" w-[310px] h-[44px]"
+            />
+
+            <Button className="h-[46px] w-[170px] rounded-[5px] bg-bgPurple text-mainPurple text-base">
               초기화
             </Button>
           </div>
@@ -136,20 +144,6 @@ const ParentingToonManagementPage = () => {
               styles="w-[139px] "
               mainStyles="bg-transparent border border-grayBorder rounded-[5px]"
             />
-            <div className="flex items-center gap-3">
-              <Button
-                aria-label="Header"
-                className="bg-mainGray text-mainWhite font-normal text-base w-[28px] rounded-[5px]"
-              >
-                삭제
-              </Button>
-              <Button
-                aria-label="Header"
-                className="bg-mainBlack text-mainWhite font-normal text-base w-[28px] rounded-[5px]"
-              >
-                삭제
-              </Button>
-            </div>
           </div>
         </div>
 
@@ -212,7 +206,7 @@ const ParentingToonManagementPage = () => {
               </TableColumn>
 
               <React.Fragment>
-                {row7Column1Columns.map((column) => (
+                {row8Column1Columns.map((column) => (
                   <TableColumn key={column.key}>{column.name}</TableColumn>
                 ))}
               </React.Fragment>
@@ -236,21 +230,19 @@ const ParentingToonManagementPage = () => {
                     ></Checkbox>
                   </TableCell>
                   <TableCell>{row.number}</TableCell>
-                  <TableCell>
-                    <div className="flex justify-center items-center">
-                      <Image
-                        src={row.thumbnail}
-                        alt="Thumbnail"
-                        className="size-[60px] rounded-[10px] object-cover"
-                      />
-                    </div>
+                  <TableCell>{row.years}</TableCell>
+                  <TableCell>{row.developmentalArea}</TableCell>
+                  <TableCell>{row.question}</TableCell>
+                  <TableCell
+                    className={`${
+                      row.isAnswered ? "text-[#3B90F4]" : "text-[#F05858]"
+                    }`}
+                  >
+                    {row.answer}
                   </TableCell>
-                  <TableCell>{row.title}</TableCell>
-                  <TableCell>{row.author}</TableCell>
-                  <TableCell>{row.round}</TableCell>
                   <TableCell>
                     <Link
-                      href="/admin/community/parenting-toon-management/1"
+                      href="/admin/test-result/1"
                       className="text-mainPurple underline underline-offset-2"
                     >
                       {row.viewDetails}
@@ -266,4 +258,4 @@ const ParentingToonManagementPage = () => {
   );
 };
 
-export default ParentingToonManagementPage;
+export default TestResultManagementPage;

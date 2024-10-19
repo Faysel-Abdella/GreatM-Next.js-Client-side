@@ -1,9 +1,12 @@
 import { Button, Checkbox, Textarea } from "@nextui-org/react";
 
-const ExpertManagementDetailPage = () => {
+import Image from "next/image";
+
+import assets from "@/assets";
+
+const ToonImageDetailPage = () => {
   const titleStyles = "font-bold text-mainBlack text-base w-[100px]";
   const fadeStyles = "font-medium text-[14px] text-mainGray w-[350px]";
-  const valueStyles = "font-medium text-[14px] text-mainBlack w-[350px]";
 
   return (
     <section className="mt-8 font-noto">
@@ -14,28 +17,30 @@ const ExpertManagementDetailPage = () => {
           </button>
         </div>
         <h2 className="mt-4 font-bold text-[30px] leading-[42px] text-mainBlack">
-          전문가 관리
+          육아툰 회차 상세보기
         </h2>
       </header>
       <main className="mt-7 bg-mainWhite p-10 rounded-[20px]">
         <div className="mt-6 flex items-center gap-[60px]">
           <div className="flex items-center">
             <h3 className={`${titleStyles}`}>제목</h3>
-            <p className={`${valueStyles}`}>육아 게시글 제목 영역</p>
-          </div>
-          <div className="flex items-center">
-            <h3 className={`${titleStyles}`}>카테고리</h3>
-            <p className={`${fadeStyles}`}>놀이방법</p>
+            <p className={`${fadeStyles}`}>육아툰 제목 영역</p>
           </div>
         </div>
+
         <div className="mt-6 flex items-center gap-[60px]">
-          <div className="flex items-center">
-            <h3 className={`${titleStyles}`}>작성자</h3>
-            <p className={`${fadeStyles}`}>닉네임</p>
-          </div>
-          <div className="flex items-center">
-            <h3 className={`${titleStyles}`}>작성일</h3>
-            <p className={`${fadeStyles}`}>YYYY-MM-DD </p>
+          <div className="flex">
+            <h3 className={`${titleStyles}`}>이미지</h3>
+            <div className="flex flex-wrap gap-[10px]">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <Image
+                  key={index}
+                  src={assets.largeImageDemo}
+                  alt="Table body image"
+                  className="size-[220px] rounded-[5px] object-contain"
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -57,17 +62,6 @@ const ExpertManagementDetailPage = () => {
             <p className={`${fadeStyles}`}>100</p>
           </div>
         </div>
-      </main>
-
-      <main className="mt-7 bg-mainWhite p-10 rounded-[20px]">
-        <Textarea
-          defaultValue="콘텐츠 영역"
-          radius="none"
-          minRows={7}
-          classNames={{
-            input: ["font-bold text-mainBlack text-[16px]"],
-          }}
-        />
       </main>
 
       <main className="mt-7 bg-mainWhite p-10 rounded-[20px]">
@@ -133,4 +127,4 @@ const ExpertManagementDetailPage = () => {
   );
 };
 
-export default ExpertManagementDetailPage;
+export default ToonImageDetailPage;
