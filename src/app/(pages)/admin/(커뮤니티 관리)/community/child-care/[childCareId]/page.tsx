@@ -12,12 +12,6 @@ const ChildCareDetails = () => {
   const fadeStyles = "font-medium text-[14px] text-mainGray w-[350px]";
   const valueStyles = "font-medium text-[14px] text-mainBlack w-[350px]";
 
-  // Checkbox selection logic
-  const [clickedRowIds, setClickedRowIds] = useState<number[]>([]);
-  const [allListCheckedPageNumbers, setAllListCheckedPageNumbers] = useState<
-    number[]
-  >([]);
-
   return (
     <section className="mt-8 font-noto">
       <header>
