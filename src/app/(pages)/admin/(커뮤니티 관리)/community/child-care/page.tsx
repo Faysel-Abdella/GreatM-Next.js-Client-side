@@ -83,7 +83,7 @@ const ChildCarePage = () => {
           </button>
         </div>
         <h2 className="mt-4 font-bold text-[30px] leading-[42px] text-mainBlack">
-          육아용품 관리
+          육아 관리
         </h2>
 
         <div className="mt-4 bg-mainWhite py-7 px-9 rounded-[20px]">

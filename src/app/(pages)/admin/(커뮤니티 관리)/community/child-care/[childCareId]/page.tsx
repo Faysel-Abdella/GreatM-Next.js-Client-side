@@ -21,7 +21,7 @@ const ChildCareDetails = () => {
           </button>
         </div>
         <h2 className="mt-4 font-bold text-[30px] leading-[42px] text-mainBlack">
-          육아 상세보기
+          육아 관리
         </h2>
       </header>
       <main className="mt-7 bg-mainWhite p-10 rounded-[20px]">
