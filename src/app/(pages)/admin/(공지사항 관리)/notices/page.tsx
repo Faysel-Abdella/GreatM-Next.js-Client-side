@@ -234,7 +234,9 @@ const NoticePage = () => {
                     ></Checkbox>
                   </TableCell>
                   <TableCell>{row.number}</TableCell>
-                  <TableCell>{row.title}</TableCell>
+                  <TableCell className="max-w-[300px] text-nowrap overflow-hidden text-ellipsis">
+                    {row.title}
+                  </TableCell>
                   <TableCell>{row.creationDate}</TableCell>
                   <TableCell>
                     <Link
