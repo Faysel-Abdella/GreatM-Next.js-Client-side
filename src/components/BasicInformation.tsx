@@ -6,9 +6,9 @@ import {
   ModalContent,
   ModalFooter,
   useDisclosure,
+  Button,
 } from "@nextui-org/react";
 
-import { Button } from "@nextui-org/react";
 import InputWithLabel from "./InputWithLabel";
 
 const BasicInformation = () => {
